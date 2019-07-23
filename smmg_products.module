@@ -6,11 +6,14 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\Entity\Node;
+use Drupal\small_messages\Utility\Helper;
 
 /**
  * Implements hook_help().
  */
-function products_help($route_name, RouteMatchInterface $route_match) {
+function products_help($route_name, RouteMatchInterface $route_match)
+{
   switch ($route_name) {
     // Main module help for the products module.
     case 'help.page.smmg_products':
@@ -26,10 +29,215 @@ function products_help($route_name, RouteMatchInterface $route_match) {
 /**
  * Implements hook_theme().
  */
-function smmg_products_theme() {
+function smmg_products_theme()
+{
   return [
     'products' => [
       'render element' => 'children',
     ],
+    'node__product' => [
+      'template' => 'node--product',
+      'base hook' => 'node'
+    ],
   ];
+}
+
+/**
+ * @param $variables
+ * @throws Exception
+ */
+function smmg_products_preprocess_node(&$variables)
+{
+  if (isset($variables['node'])) {
+    $node = $variables['node'];
+    if ($node->bundle() === 'product') {
+      $variables['product'] = getProductVariables($node);
+    }
+  }
+}
+
+/**
+ * @param $node
+ * @return array
+ * @throws Exception
+ */
+function getProductVariables($node): array
+{
+  // name
+  $id = $node->id();
+
+  // name
+  $name = $node->getTitle();
+
+  // available
+  $field_name = 'product_available';
+  $available = Helper::getFieldValue($node, $field_name);
+
+  // category
+  $field_name = 'product_category';
+  $term_list = 'product_category';
+  $value = Helper::getFieldValue($node, $field_name, $term_list);
+  $category = $value;
+
+  // cover
+  $field_name = 'product_cover';
+  $value = Helper::getFieldValue($node, $field_name);
+  $cover = $value;
+
+  // description
+  $field_name = 'product_description';
+  $value = Helper::getFieldValue($node, $field_name);
+  $description = $value;
+
+  // price
+  $field_name = 'product_price';
+  $value = Helper::getFieldValue($node, $field_name);
+  $price = $value;
+
+  // price_download
+  $field_name = 'product_price_download';
+  $value = Helper::getFieldValue($node, $field_name);
+  $price_download = $value;
+
+  // price_shipping
+  $field_name = 'product_price_shipping';
+  $value = Helper::getFieldValue($node, $field_name);
+  $price_shipping = $value;
+
+  // producer
+  $field_name = 'product_producer';
+  $term_list = 'track_producer';
+  $value = Helper::getFieldValue($node, $field_name, $term_list);
+  $producer = $value;
+
+  // $artist
+  $field_name = 'track_artist';
+  $term_list = 'track_artist';
+  $value = Helper::getFieldValue($node, $field_name, $term_list);
+  $artist = $value;
+
+  // author
+  $field_name = 'track_author';
+  $term_list = 'track_author';
+  $value = Helper::getFieldValue($node, $field_name, $term_list);
+  $author = $value;
+
+  // copyright
+  $field_name = 'track_copyright';
+  $term_list = 'track_copyright';
+  $value = Helper::getFieldValue($node, $field_name, $term_list);
+  $copyright = $value;
+
+  // Tracks
+  $field_name = 'album_tracks';
+  $value = Helper::getFieldValue($node, $field_name);
+  $track_ids = $value;
+
+  $tracks = getAlbumTrackVariables($track_ids);
+
+  // write returns
+  return [
+    'name' => $name,
+    'id' => $id,
+    'available' => $available,
+    'category' => $category,
+    'cover' => $cover,
+    'description' => $description,
+    'price' => $price,
+    'price_total' => $price,
+    'price_download' => $price_download,
+    'price_total_download' => $price_download,
+    'price_shipping' => $price_shipping,
+    'producer' => $producer,
+    'artist' => $artist,
+    'author' => $author,
+    'copyright' => $copyright,
+    'tracks' => $tracks,
+  ];
+}
+
+/**
+ * @param $track_ids
+ * @return array
+ * @throws Exception
+ */
+function getAlbumTrackVariables($track_ids): array
+{
+  $tracks = [];
+  $i = 0;
+
+  foreach ($track_ids as $tracks_id) {
+    $album_track_nr = $i + 1;
+    $tracks[$i] = getTrackVariables($tracks_id);
+    $tracks[$i]['number'] = $album_track_nr;
+    $i++;
+  }
+
+
+  return $tracks;
+}
+
+/**
+ * @param $track_id
+ * @return array
+ * @throws Exception
+ */
+function getTrackVariables($track_id): array
+{
+  $name = '';
+  $has_preview = false;
+  $track_preview = '';
+  $track_audio = '';
+
+  $node = Node::load($track_id);
+
+  // name
+  if (!empty($node)) {
+    $name = $node->getTitle();
+  }
+
+  // Duration
+  $field_name = 'track_duration';
+  $value = Helper::getFieldValue($node, $field_name);
+  $value = new DateInterval($value);
+  $duration = $value->format('%i:%s');
+
+  // artist
+  $field_name = 'track_artist';
+  $term_list = 'track_artist';
+  $value = Helper::getFieldValue($node, $field_name, $term_list);
+  $artist = $value;
+
+  // author
+  $field_name = 'track_author';
+  $term_list = 'track_author';
+  $value = Helper::getFieldValue($node, $field_name, $term_list);
+  $author = $value;
+
+  // copyright
+  $field_name = 'track_copyright';
+  $term_list = 'track_copyright';
+  $value = Helper::getFieldValue($node, $field_name, $term_list);
+  $copyright = $value;
+
+  // download_only
+  $field_name = 'download_only';
+  $value = Helper::getFieldValue($node, $field_name, $term_list);
+  $download_only = $value;
+
+  return [
+    'id' => $track_id,
+    'number' => $track_id,
+    'name' => $name,
+    'duration' => $duration,
+    'has_preview' => $has_preview,
+    'preview_file' => $track_preview,
+    'audio_file' => $track_audio,
+    'artist' => $artist,
+    'author' => $author,
+    'copyright' => $copyright,
+    'download_only' => $download_only,
+  ];
+
+
 }
