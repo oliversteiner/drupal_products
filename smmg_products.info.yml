@@ -1,0 +1,5 @@
+name: 'Products'
+type: module
+description: 'Format Products (CD Album)'
+core: 8.x
+package: 'Small Messages'

@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains smmg_products.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function products_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the products module.
+    case 'help.page.smmg_products':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Format Products (CD Album)') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function smmg_products_theme() {
+  return [
+    'products' => [
+      'render element' => 'children',
+    ],
+  ];
+}

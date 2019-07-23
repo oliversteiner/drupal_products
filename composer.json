@@ -1,0 +1,16 @@
+{
+    "name": "drupal/smmg_products",
+    "license": "",
+    "type": "drupal-module",
+    "description": "Format Products (CD Album)",
+    "keywords": [
+    ],
+    "homepage": "https://github.com/oliversteiner/smmg_products",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://github.com/oliversteiner/smmg_products/issues",
+        "source": "https://github.com/oliversteiner/smmg_products"
+    },
+    "require": { }
+
+}
