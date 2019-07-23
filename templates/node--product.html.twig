@@ -70,16 +70,14 @@
  *   in different view modes.
  */
 #}
-{%
-  set classes = [
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  ]
-%}
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+] %}
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
 
@@ -105,10 +103,119 @@
   <div{{ content_attributes.addClass('node__content') }}>
 
     {{ dd(product) }}
+    {# category #}
+    <div class="product-category"> {{ product.category }} </div>
+    <div class="product-cover"> {{ product.cover }} </div>
 
+    {# name #}
+    <div class="product-name"><span class="product-label sr-only">Titel:</span> {{ product.name }} </div>
 
+    {# description #}
+    <div class="product-description"><span class="product-label sr-only">Beschreibung:</span> {{ product.description }}
+    </div>
 
+    {# artist #}
+    <div class="product-artist"><span class="product-label sr-only">Interpret:</span> {{ product.artist }} </div>
 
-  </div>
+    {# author #}
+    <div class="product-author"><span class="product-label sr-only">Autor:</span> {{ product.author }} </div>
+
+    {# copyright #}
+    <div class="product-copyright"><span class="product-label sr-only">Copyright:</span> {{ product.copyright }} </div>
+
+    {# producer #}
+    <div class="product-producer"><span class="product-label sr-only">Produzent:</span>{{ product.producer }} </div>
+
+    {# price #}
+    <div class="product-price"><span class="product-label sr-only">Preis CD:</span> {{ product.price }} </div>
+
+    {# download #}
+    {% if product.has_download %}
+      {# download-price #}
+      <div class="product-download-price"><span
+          class="product-label sr-only">Preis MP3:</span> {{ product.download_price }}
+      </div>
+    {% endif %}
+
+    {% if not product.available %}
+
+      {# available #}
+      <div class="product-not-available">Zur Zeit nicht verfügbar.</div>
+    {% endif %}
+
+    {# tracks  ==================================  #}
+    <div class="product-tracks">
+
+      <ul class="product-track-list" aria-label="Album Track Liste">
+        {% for track in product.tracks %}
+
+          <li class="product-track-list-item">
+
+            {# ===== Track List Item General #}
+            <div class="product-track-list-item-general">
+              {# number #}
+              <span class="product-track-list-item-number">{{ track.number }}</span>
+
+              {# name #}
+              <span class="product-track-list-item-name">{{ track.name }}</span>
+
+              {# duration #}
+              <span class="product-track-list-item-duration">{{ track.duration }}</span>
+
+              {# preview #}
+              <span class="product-track-list-item-preview">{{ track.preview }}</span>
+
+              {# audio #}
+              <span class="product-track-list-item-audio">{{ track.audio }}</span>
+
+              {# preview_file #}
+              {% if track.has_preview %}
+                <span class="product-track-list-item-preview">
+
+                  <a href="{{ track.preview_file.link }}"> <i
+                      class="fas fa-volume-up"></i> {{ track.preview.file_name }}</a>
+                </span>
+
+              {% endif %}
+
+            </div>
+
+            {# ===== Track List Item Preview #}
+            {% if track.has_preview %}
+
+            <div class="product-track-list-item-preview-player">
+              <audio controls="controls">
+                <source src="{{ track.preview.media_link }}" type="{{ track.preview.mime_type }}">
+              </audio>
+            </div>
+            {% endif %}
+
+            {# ===== Track List Item Download only #}
+            {% if track.download_only %}
+              <div class="product-track-list-item-download-only">
+                Nur als mp3 erhältlich.
+              </div>
+            {% endif %}
+
+            {# ===== Track List Item Info #}
+            <div class="product-track-list-item-info">
+
+              {# artist #}
+              <span class="product-track-list-item-artist">{{ track.artist }}</span>
+
+              {# author #}
+              <span class="product-track-list-item-author">{{ track.author }}</span>
+
+              {# copyright #}
+              <span class="product-track-list-item-copyright">{{ track.copyright }}</span>
+            </div>
+
+          </li>
+
+        {% endfor %}
+      </ul>
+    </div>
+    {# end tracks    ==================================   #}
+
 
 </article>

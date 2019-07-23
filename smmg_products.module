@@ -99,6 +99,8 @@ function getProductVariables($node): array
   $value = Helper::getFieldValue($node, $field_name);
   $price_download = $value;
 
+  $has_download = $price_download ? true : false;
+
   // price_shipping
   $field_name = 'product_price_shipping';
   $value = Helper::getFieldValue($node, $field_name);
@@ -142,6 +144,7 @@ function getProductVariables($node): array
     'available' => $available,
     'category' => $category,
     'cover' => $cover,
+    'has_download' => $has_download,
     'description' => $description,
     'price' => $price,
     'price_total' => $price,
@@ -186,8 +189,7 @@ function getTrackVariables($track_id): array
 {
   $name = '';
   $has_preview = false;
-  $track_preview = '';
-  $track_audio = '';
+
 
   $node = Node::load($track_id);
 
@@ -222,8 +224,23 @@ function getTrackVariables($track_id): array
 
   // download_only
   $field_name = 'download_only';
-  $value = Helper::getFieldValue($node, $field_name, $term_list);
+  $value = Helper::getFieldValue($node, $field_name);
   $download_only = $value;
+
+  // $track_preview
+  $field_name = 'track_prev';
+  $_preview = Helper::getAudioFieldValue($node, $field_name);
+  $has_preview = $_preview ? true : false;
+
+
+  // $track_audio
+  $field_name = 'track_audio';
+  $_audio = Helper::getAudioFieldValue($node, $field_name);
+  $has_audio = $_audio ? true : false;
+
+
+
+
 
   return [
     'id' => $track_id,
@@ -231,8 +248,9 @@ function getTrackVariables($track_id): array
     'name' => $name,
     'duration' => $duration,
     'has_preview' => $has_preview,
-    'preview_file' => $track_preview,
-    'audio_file' => $track_audio,
+    'preview' => $_preview,
+    'audio' => $_audio,
+    'has_audio' => $has_audio,
     'artist' => $artist,
     'author' => $author,
     'copyright' => $copyright,
