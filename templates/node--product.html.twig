@@ -81,6 +81,9 @@
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
 
+
+  <div id="smmg-products"></div> {# for jQuery.once() #}
+
   <div{{ content_attributes.addClass('node__content') }}>
 
 
@@ -153,7 +156,10 @@
       <ul class="product-track-list" aria-label="Album Track Liste">
         {% for track in product.tracks %}
 
-          <li class="product-track-list-item {% if track.has_preview %}with-preview{% endif %}">
+          <li class="product-track-list-item
+          product-track-list-item-trigger
+          {% if track.has_preview %}with-preview{% endif %}"
+              data-list-item="item-{{ loop.index0 }}">
 
             {# ===== Track List Item General #}
             <div class="product-track-list-item-general">
@@ -178,17 +184,6 @@
               {% endif %}
 
             </div>
-
-            {# ===== Track List Item Preview #}
-            {% if track.has_preview %}
-
-              <div class="product-track-list-item-preview-player">
-                <audio controls="controls">
-                  <source src="{{ track.preview.media_link }}" type="{{ track.preview.mime_type }}">
-                </audio>
-              </div>
-            {% endif %}
-
             {# ===== Track List Item Download only #}
             {% if track.download_only %}
               <div class="product-track-list-item-download-only">
@@ -196,8 +191,19 @@
               </div>
             {% endif %}
 
+            {# ===== Track List Item Preview #}
+            {% if track.has_preview %}
+
+              <div class="product-track-list-item-preview-player product-track-list-item-preview-player-{{ loop.index0 }} ">
+                <audio controls="controls">
+                  <source src="{{ track.preview.media_link }}" type="{{ track.preview.mime_type }}">
+                </audio>
+              </div>
+            {% endif %}
+
+
             {# ===== Track List Item Info #}
-            <div class="product-track-list-item-info">
+            <div class="product-track-list-item-info product-track-list-item-info-{{ loop.index0 }}">
               <ul>
                 {# artist #}
                 {% if track.artist %}

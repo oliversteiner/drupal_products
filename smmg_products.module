@@ -53,6 +53,7 @@ function smmg_products_preprocess_node(&$variables)
     $node = $variables['node'];
     if ($node->bundle() === 'product') {
       $variables['product'] = getProductVariables($node);
+      $variables['#attached']['library'][] = 'smmg_products/smmg_products.main';
       $variables['#attached']['library'][] = 'light_slide_gallery/light_slide_gallery.main';
 
     }

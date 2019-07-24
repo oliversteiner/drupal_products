@@ -1,0 +1,9 @@
+smmg_products.main:
+  css:
+    theme:
+      assets/css/smmg_products.css: {}
+  js:
+    assets/js/smmgProducts.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
