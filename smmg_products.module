@@ -8,6 +8,7 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\node\Entity\Node;
 use Drupal\small_messages\Utility\Helper;
+use Drupal\file\Entity\File;
 
 /**
  * Implements hook_help().
@@ -52,6 +53,8 @@ function smmg_products_preprocess_node(&$variables)
     $node = $variables['node'];
     if ($node->bundle() === 'product') {
       $variables['product'] = getProductVariables($node);
+      $variables['#attached']['library'][] = 'light_slide_gallery/light_slide_gallery.main';
+
     }
   }
 }
@@ -81,8 +84,29 @@ function getProductVariables($node): array
 
   // cover
   $field_name = 'product_cover';
-  $value = Helper::getFieldValue($node, $field_name);
-  $cover = $value;
+  $file_ids = Helper::getFieldValue($node, $field_name, null, true);
+
+
+  $images = [];
+  // Loop over all images in field
+  $image_style_default = 'unig_cover';
+  $image_style_thumbnail = 'unig_thumbnail';
+  $image_style_fullscreen = 'unig_hd';
+  $i = 0;
+
+  foreach ($file_ids as $file_id) {
+
+    $image_default = Helper::createImageStyle($file_id, $image_style_default, true);
+    $image_thumbnail = Helper::createImageStyle($file_id, $image_style_thumbnail, true);
+    $image_fullscreen = Helper::createImageStyle($file_id, $image_style_fullscreen, true);
+
+    $images[$i]['default'] = $image_default;
+    $images[$i]['thumbnail'] = $image_thumbnail;
+    $images[$i]['fullscreen'] = $image_fullscreen;
+    $i++;
+  }
+  $slide_id = 'imageGallery-' . $id . '-' . $field_name;
+
 
   // description
   $field_name = 'product_description';
@@ -143,7 +167,8 @@ function getProductVariables($node): array
     'id' => $id,
     'available' => $available,
     'category' => $category,
-    'cover' => $cover,
+    'images' => $images,
+    'slide_id' => $slide_id,
     'has_download' => $has_download,
     'description' => $description,
     'price' => $price,
@@ -237,9 +262,6 @@ function getTrackVariables($track_id): array
   $field_name = 'track_audio';
   $_audio = Helper::getAudioFieldValue($node, $field_name);
   $has_audio = $_audio ? true : false;
-
-
-
 
 
   return [
