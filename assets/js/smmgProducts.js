@@ -5,7 +5,7 @@
     tracklist: {},
     current_track: 0,
     attach(context, settings) {
-      $('#smmg-products', context)
+      $('#page-wrapper', context)
         .once('smmgProductsBehavior')
         .each(() => {
           // Tracklist toggle Info
@@ -14,8 +14,12 @@
           this.tracklist = this.getTracklist();
           const $tracklistItem = $('.product-track-list-item-trigger');
 
+          const $toggleTracklistButton = $('.product-show-tracklist-trigger');
+          const $tracklistContainer = $('.product-tracks-container');
+
           const $playerContainer = $('.audio-player-widget');
           const $togglePlayerButton = $('.product-listen-all-previews-trigger');
+
           const $playButton = $('.audio-player-play-trigger');
           const $pauseButton = $('.audio-player-pause-trigger');
           const $nextTrackButton = $('.audio-player-next-track-trigger');
@@ -28,6 +32,8 @@
             pauseButton: $pauseButton,
             nextTrackButton: $nextTrackButton,
             previewTrackButton: $previewTrackButton,
+            toggleTracklistButton: $toggleTracklistButton,
+            tracklistContainer: $tracklistContainer,
           };
 
           console.log('this.product', this.product);
@@ -52,6 +58,10 @@
 
           $togglePlayerButton.click(function() {
             scope.togglePlayer();
+          });
+
+          $toggleTracklistButton.click(function() {
+            scope.toggleTracklist();
           });
 
           return $tracklistItem.each(function(index) {
@@ -86,6 +96,13 @@
     /**
      *
      */
+    toggleTracklist() {
+      this.$elements.tracklistContainer.toggle();
+    },
+
+    /**
+     *
+     */
     playAll() {
       console.log('playAll');
       this.play();
@@ -115,7 +132,7 @@
     pause() {
       console.log('pauseAll');
 
-      this.toggleAudioActivityBars();
+      this.stopAudioActivityBars();
       this.$elements.playButton.show();
       this.$elements.pauseButton.hide();
 
@@ -175,6 +192,13 @@
      */
     toggleAudioActivityBars() {
       $('.bar').toggleClass('sound-on');
+    },
+
+    /**
+     *
+     */
+    stopAudioActivityBars() {
+      $('.bar').removeClass('sound-on');
     },
 
     /**

@@ -40,6 +40,10 @@ function smmg_products_theme()
       'template' => 'node--product',
       'base hook' => 'node'
     ],
+    'node__product__teaser' => [
+      'template' => 'node--product--teaser',
+      'base hook' => 'node'
+    ],
   ];
 }
 
