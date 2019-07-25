@@ -307,4 +307,14 @@ ul.product-available-as-list {
   width: 256px;
 }
 
+.product-tracks-container {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .product-tracks-container {
+    display: inline-block;
+  }
+}
+
 /*# sourceMappingURL=smmg_products.css.map */
