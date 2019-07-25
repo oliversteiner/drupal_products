@@ -1,5 +1,11 @@
-name: 'Products'
+name: 'Small Messages - Products'
 type: module
-description: 'Format Products (CD Album)'
+description: 'Drupal Module for specific Node Layouts (Products / CD-Albums)'
 core: 8.x
 package: 'Small Messages'
+dependencies:
+  - drupal:node
+  - small_messages
+  - honeypot
+  - inline_entity_form
+  - field_group

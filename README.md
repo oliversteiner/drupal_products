@@ -1,2 +1,2 @@
 # Small Messages - Products
-Drupal Module for specific node layouts (Products / CD-Albums)
+Drupal Module for specific Node Layouts (Products / CD-Albums)

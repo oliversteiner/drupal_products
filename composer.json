@@ -2,7 +2,7 @@
     "name": "drupal/smmg_products",
     "license": "",
     "type": "drupal-module",
-    "description": "Format Products (CD Album)",
+    "description": "Drupal Module for specific Node Layouts (Products / CD-Albums)",
     "keywords": [
     ],
     "homepage": "https://github.com/oliversteiner/smmg_products",
