@@ -88,7 +88,60 @@
 
 
     {# Link Probehören #}
-    <div class="product-listen-all-previews"><a href="#"> <i class="fas fa-volume-up"></i> Probehören</a></div>
+    <div class="product-listen-all-previews">
+      <span class="product-listen-all-previews-trigger">
+        <i class="fas fa-volume-up"></i> Probehören
+      </span>
+
+
+    </div>
+
+    {# Audio Player #}
+    <div style="display: none" class="audio-player-container">
+
+      <div class="audio-player">
+
+      <div class="audio-player-button-list">
+        {# step-backward #}
+        <div class="audio-player-button audio-player-preview-track audio-player-preview-track-trigger">
+          <i class="fas fa-step-backward"></i>
+        </div>
+
+        {# Play #}
+        <div class="audio-player-button audio-player-play audio-player-play-trigger">
+          <i class="fas fa-play"></i>
+        </div>
+
+        {# pause #}
+        <div class="audio-player-button audio-player-pause audio-player-pause-trigger" style="display: none">
+          <i class="fas fa-pause"></i>
+        </div>
+
+        {# step-forward #}
+        <div class="audio-player-button audio-player-next-track audio-player-next-track-trigger">
+          <i class="fas fa-step-forward"></i>
+        </div>
+
+      </div>
+
+      <div class="audio-player-activity-bars">
+        <div id="bars">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+
+      <div class="audio-player-display">
+        <span class="audio-player-display-content">00 | ...</span>
+      </div>
+
+
+      </div>
+    </div>
 
 
     {#  Image Slider #}
@@ -194,7 +247,8 @@
             {# ===== Track List Item Preview #}
             {% if track.has_preview %}
 
-              <div class="product-track-list-item-preview-player product-track-list-item-preview-player-{{ loop.index0 }} ">
+              <div style="display: none"
+                   class="product-track-list-item-preview-player product-track-list-item-preview-player-{{ loop.index0 }} ">
                 <audio controls="controls">
                   <source src="{{ track.preview.media_link }}" type="{{ track.preview.mime_type }}">
                 </audio>
@@ -203,7 +257,8 @@
 
 
             {# ===== Track List Item Info #}
-            <div class="product-track-list-item-info product-track-list-item-info-{{ loop.index0 }}">
+            <div style="display: none"
+                 class="product-track-list-item-info product-track-list-item-info-{{ loop.index0 }}">
               <ul>
                 {# artist #}
                 {% if track.artist %}
