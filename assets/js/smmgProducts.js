@@ -14,7 +14,7 @@
           this.tracklist = this.getTracklist();
           const $tracklistItem = $('.product-track-list-item-trigger');
 
-          const $playerContainer = $('.audio-player-container');
+          const $playerContainer = $('.audio-player-widget');
           const $togglePlayerButton = $('.product-listen-all-previews-trigger');
           const $playButton = $('.audio-player-play-trigger');
           const $pauseButton = $('.audio-player-pause-trigger');
@@ -63,9 +63,8 @@
               '.product-track-list-item-preview-player-' + index,
             );
             $(this).click(function() {
-              console.log('click');
-              console.log($infoElem);
 
+              $tracklistItem.toggleClass('active');
               $infoElem.toggle();
               $playerElem.toggle();
             });
@@ -77,6 +76,11 @@
      */
     togglePlayer() {
       this.$elements.playerContainer.toggle();
+
+      const number = this.tracklist[0].number;
+      const title = this.tracklist[0].title;
+
+      this.showAudioTitle(number + '. ' + title);
     },
 
     /**

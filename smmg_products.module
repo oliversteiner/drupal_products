@@ -93,16 +93,16 @@ function getProductVariables($node): array
 
   $images = [];
   // Loop over all images in field
-  $image_style_default = 'unig_cover';
+  $image_style_default = 'product_cover';
   $image_style_thumbnail = 'unig_thumbnail';
   $image_style_fullscreen = 'unig_hd';
   $i = 0;
 
   foreach ($file_ids as $file_id) {
 
-    $image_default = Helper::createImageStyle($file_id, $image_style_default, true);
-    $image_thumbnail = Helper::createImageStyle($file_id, $image_style_thumbnail, true);
-    $image_fullscreen = Helper::createImageStyle($file_id, $image_style_fullscreen, true);
+    $image_default = Helper::createImageStyle($file_id, $image_style_default );
+    $image_thumbnail = Helper::createImageStyle($file_id, $image_style_thumbnail );
+    $image_fullscreen = Helper::createImageStyle($file_id, $image_style_fullscreen );
 
     $images[$i]['default'] = $image_default;
     $images[$i]['thumbnail'] = $image_thumbnail;
