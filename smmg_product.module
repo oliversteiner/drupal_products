@@ -243,8 +243,13 @@ function getTrackVariables($track_id): array
   // Duration
   $field_name = 'track_duration';
   $value = Helper::getFieldValue($node, $field_name);
-  $value = new DateInterval($value);
-  $duration = $value->format('%i:%s');
+
+  if ($value) {
+    $value = new DateInterval($value);
+    $duration = $value->format('%i:%s');
+  } else {
+    $duration = '00:00';
+  }
 
   // artist
   $field_name = 'track_artist';
