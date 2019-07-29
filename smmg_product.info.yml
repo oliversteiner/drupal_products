@@ -1,0 +1,11 @@
+name: 'Small Messages - Product'
+type: module
+description: 'Drupal Module for specific Node Layouts (Products / CD-Albums)'
+core: 8.x
+package: 'Small Messages'
+dependencies:
+  - drupal:node
+  - small_messages
+  - honeypot
+  - inline_entity_form
+  - field_group
