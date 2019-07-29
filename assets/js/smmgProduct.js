@@ -36,8 +36,6 @@
             tracklistContainer: $tracklistContainer,
           };
 
-          console.log('this.product', this.product);
-
           const scope = this;
 
           $playButton.click(function() {
@@ -65,7 +63,6 @@
           });
 
           return $tracklistItem.each(function(index) {
-            console.log('index', index);
             const infoElemName = this.dataset.listItem;
 
             const $infoElem = $('.product-track-list-item-info-' + index);
@@ -73,7 +70,6 @@
               '.product-track-list-item-preview-player-' + index,
             );
             $(this).click(function() {
-
               $tracklistItem.toggleClass('active');
               $infoElem.toggle();
               $playerElem.toggle();
@@ -104,13 +100,10 @@
      *
      */
     playAll() {
-      console.log('playAll');
       this.play();
     },
 
     play() {
-      console.log('play');
-
       this.toggleAudioActivityBars();
       this.$elements.playButton.hide();
       this.$elements.pauseButton.show();
@@ -123,15 +116,12 @@
 
       this.showAudioTitle(number + '. ' + title);
       sound.play();
-
     },
 
     /**
      *
      */
     pause() {
-      console.log('pauseAll');
-
       this.stopAudioActivityBars();
       this.$elements.playButton.show();
       this.$elements.pauseButton.hide();
@@ -139,23 +129,17 @@
       const ct = this.current_track;
       const sound = this.tracklist[ct].sound;
       sound.pause();
-
-
     },
 
     /**
      *
      */
     nextTrack() {
-      console.log('nextTrack');
       const ct = this.current_track;
       const max = this.tracklist.length;
       const sound = this.tracklist[ct].sound;
 
       let next_track = ct + 1;
-
-      console.log('next_track', next_track);
-      console.log('max', max);
 
       if (next_track < max) {
         sound.pause();
@@ -170,7 +154,6 @@
      *
      */
     previewTrack() {
-      console.log('previewTrack');
       const ct = this.current_track;
       const sound = this.tracklist[ct].sound;
 
@@ -180,7 +163,6 @@
         next_track = 0;
       }
       sound.pause();
-
 
       this.current_track = next_track;
 
