@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains smmg_products.module.
+ * Contains smmg_product.module.
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -13,11 +13,11 @@ use Drupal\file\Entity\File;
 /**
  * Implements hook_help().
  */
-function products_help($route_name, RouteMatchInterface $route_match)
+function smmg_product_help($route_name, RouteMatchInterface $route_match)
 {
   switch ($route_name) {
     // Main module help for the products module.
-    case 'help.page.smmg_products':
+    case 'help.page.smmg_product':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('Format Products (CD Album)') . '</p>';
@@ -30,7 +30,7 @@ function products_help($route_name, RouteMatchInterface $route_match)
 /**
  * Implements hook_theme().
  */
-function smmg_products_theme()
+function smmg_product_theme()
 {
   return [
     'products' => [
@@ -51,7 +51,7 @@ function smmg_products_theme()
  * @param $variables
  * @throws Exception
  */
-function smmg_products_preprocess_node(&$variables)
+function smmg_product_preprocess_node(&$variables)
 {
   if (isset($variables['node'])) {
     $node = $variables['node'];
@@ -59,7 +59,7 @@ function smmg_products_preprocess_node(&$variables)
 
       $product_variables = getProductVariables($node);
       $variables['product'] = $product_variables;
-      $variables['#attached']['library'][] = 'smmg_products/smmg_products.main';
+      $variables['#attached']['library'][] = 'smmg_product/smmg_product.main';
       $variables['#attached']['library'][] = 'light_slide_gallery/light_slide_gallery.main';
       $variables['#attached']['drupalSettings']['product'] = $product_variables;
 

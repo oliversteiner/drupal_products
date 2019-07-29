@@ -279,7 +279,7 @@ ul.product-available-as-list {
   border: 1px solid #404040;
 }
 
-#smmg-products {
+#smmg-product {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -316,4 +316,4 @@ ul.product-available-as-list {
   display: none;
 }
 
-/*# sourceMappingURL=smmg_products.css.map */
+/*# sourceMappingURL=smmg_product.css.map */

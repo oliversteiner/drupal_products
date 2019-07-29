@@ -1,12 +1,12 @@
 (function($) {
-  Drupal.behaviors.smmgProductsBehavior = {
+  Drupal.behaviors.smmgProductBehavior = {
     $elements: {},
     product: {},
     tracklist: {},
     current_track: 0,
     attach(context, settings) {
       $('#page-wrapper', context)
-        .once('smmgProductsBehavior')
+        .once('smmgProductBehavior')
         .each(() => {
           // Tracklist toggle Info
 
