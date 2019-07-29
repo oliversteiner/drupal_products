@@ -172,7 +172,7 @@ function getProductVariables($node): array
 
   // Tracks
   $field_name = 'album_tracks';
-  $value = Helper::getFieldValue($node, $field_name);
+  $value = Helper::getFieldValue($node, $field_name, null, true);
   $track_ids = $value;
 
   $tracks = getAlbumTrackVariables($track_ids);
