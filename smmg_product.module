@@ -102,16 +102,18 @@ function getProductVariables($node): array
   $image_style_fullscreen = 'unig_hd';
   $i = 0;
 
-  foreach ($file_ids as $file_id) {
+  if ($file_ids) {
+    foreach ($file_ids as $file_id) {
 
-    $image_default = Helper::createImageStyle($file_id, $image_style_default );
-    $image_thumbnail = Helper::createImageStyle($file_id, $image_style_thumbnail );
-    $image_fullscreen = Helper::createImageStyle($file_id, $image_style_fullscreen );
+      $image_default = Helper::createImageStyle($file_id, $image_style_default);
+      $image_thumbnail = Helper::createImageStyle($file_id, $image_style_thumbnail);
+      $image_fullscreen = Helper::createImageStyle($file_id, $image_style_fullscreen);
 
-    $images[$i]['default'] = $image_default;
-    $images[$i]['thumbnail'] = $image_thumbnail;
-    $images[$i]['fullscreen'] = $image_fullscreen;
-    $i++;
+      $images[$i]['default'] = $image_default;
+      $images[$i]['thumbnail'] = $image_thumbnail;
+      $images[$i]['fullscreen'] = $image_fullscreen;
+      $i++;
+    }
   }
   $slide_id = 'imageGallery-' . $id . '-' . $field_name;
 
@@ -208,14 +210,14 @@ function getAlbumTrackVariables($track_ids): array
 {
   $tracks = [];
   $i = 0;
-
-  foreach ($track_ids as $tracks_id) {
-    $album_track_nr = $i + 1;
-    $tracks[$i] = getTrackVariables($tracks_id);
-    $tracks[$i]['number'] = $album_track_nr;
-    $i++;
+  if ($track_ids) {
+    foreach ($track_ids as $tracks_id) {
+      $album_track_nr = $i + 1;
+      $tracks[$i] = getTrackVariables($tracks_id);
+      $tracks[$i]['number'] = $album_track_nr;
+      $i++;
+    }
   }
-
 
   return $tracks;
 }
