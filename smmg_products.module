@@ -133,7 +133,7 @@ function getProductVariables($node): array
 
   $has_download = $price_download ? true : false;
 
-  // price_shipping
+  // Price shipping
   $field_name = 'product_price_shipping';
   $value = Helper::getFieldValue($node, $field_name);
   $price_shipping = $value;
@@ -162,6 +162,12 @@ function getProductVariables($node): array
   $value = Helper::getFieldValue($node, $field_name, $term_list);
   $copyright = $value;
 
+  // Date of publication
+  $field_name = 'date_of_publication';
+  $value = Helper::getFieldValue($node, $field_name);
+  $date_of_publication = $value;
+
+
   // Tracks
   $field_name = 'album_tracks';
   $value = Helper::getFieldValue($node, $field_name);
@@ -188,6 +194,7 @@ function getProductVariables($node): array
     'artist' => $artist,
     'author' => $author,
     'copyright' => $copyright,
+    'date_of_publication' => $date_of_publication,
     'tracks' => $tracks,
   ];
 }

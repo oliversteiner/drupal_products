@@ -151,7 +151,8 @@
 
 .product-author,
 .product-artist,
-.product-producer {
+.product-producer,
+.product-date-of-publication {
   font-style: italic;
 }
 
@@ -301,20 +302,18 @@ ul.product-available-as-list {
     margin: auto;
   }
 }
-.product-teaser-buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 256px;
-}
-
-.product-tracks-container {
-  display: none;
-}
-
 @media (min-width: 1200px) {
   .product-tracks-container {
     display: inline-block;
   }
+}
+.node--view-mode-teaser .product-teaser-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 256px;
+}
+.node--view-mode-teaser .product-tracks-container {
+  display: none;
 }
 
 /*# sourceMappingURL=smmg_products.css.map */

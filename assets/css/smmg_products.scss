@@ -154,7 +154,8 @@
 
 .product-author,
 .product-artist,
-.product-producer {
+.product-producer,
+.product-date-of-publication{
   font-style: italic;
 }
 
@@ -330,19 +331,6 @@ ul.product-available-as-list {
 
 }
 
-// Teaser
-// ===================================
-
-.product-teaser-buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 256px;
-}
-
-.product-tracks-container {
-  display: none;
-}
-
 // Medium devices (tablets, 768px and up)
 @media (min-width: 1200px) {
 
@@ -350,3 +338,20 @@ ul.product-available-as-list {
     display: inline-block;
   }
 }
+
+// Teaser
+// ===================================
+.node--view-mode-teaser {
+  .product-teaser-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 256px;
+  }
+
+  .product-tracks-container {
+    display: none;
+  }
+
+}
+
+

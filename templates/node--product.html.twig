@@ -207,6 +207,11 @@
           {{ product.producer }} </div>
 
 
+        {# Date of publication	 #}
+        <div class="product-date-of-publication">
+          <span class="product-label sr-only">Veröffentlicht am	:</span>
+          {{ product.date_of_publication|date("F Y") }} </div>
+
         {# available #}
         {% if not product.available %}
           <div class="product-not-available">Zur Zeit nicht verfügbar.</div>
