@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\products\Plugin\Block;
+namespace Drupal\smmg_product\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 

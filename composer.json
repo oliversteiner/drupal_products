@@ -1,15 +1,15 @@
 {
-    "name": "drupal/smmg_products",
+    "name": "drupal/smmg_product",
     "license": "",
     "type": "drupal-module",
     "description": "Drupal Module for specific Node Layouts (Products / CD-Albums)",
     "keywords": [
     ],
-    "homepage": "https://github.com/oliversteiner/smmg_products",
+    "homepage": "https://github.com/oliversteiner/smmg_product",
     "minimum-stability": "dev",
     "support": {
-        "issues": "https://github.com/oliversteiner/smmg_products/issues",
-        "source": "https://github.com/oliversteiner/smmg_products"
+        "issues": "https://github.com/oliversteiner/smmg_product/issues",
+        "source": "https://github.com/oliversteiner/smmg_product"
     },
     "require": { }
 

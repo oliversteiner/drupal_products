@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\products\Functional;
+namespace Drupal\Tests\mssg_product\Functional;
 
 use Drupal\Core\Url;
 use Drupal\Tests\BrowserTestBase;
@@ -8,7 +8,7 @@ use Drupal\Tests\BrowserTestBase;
 /**
  * Simple test to ensure that main page loads with module enabled.
  *
- * @group smmg_products
+ * @group smmg_product
  */
 class LoadTest extends BrowserTestBase {
 
@@ -17,7 +17,7 @@ class LoadTest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = ['smmg_products'];
+  public static $modules = ['smmg_product'];
 
   /**
    * A user with permission to administer site configuration.
