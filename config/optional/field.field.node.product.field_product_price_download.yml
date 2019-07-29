@@ -1,0 +1,23 @@
+uuid: 3209c1fe-574c-4610-85af-f02bb0a57c9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_price_download
+    - node.type.product
+id: node.product.field_product_price_download
+field_name: field_product_price_download
+entity_type: node
+bundle: product
+label: 'Product Price Download'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: CHF
+field_type: decimal

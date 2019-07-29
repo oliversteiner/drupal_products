@@ -1,0 +1,15 @@
+uuid: b99a07ff-790d-4177-b20d-5ca35bd6dd64
+langcode: en
+status: true
+dependencies: {  }
+name: product_cover
+label: 'Product Cover'
+effects:
+  0a8d5f3f-97c4-41cd-82bf-9e2844432985:
+    uuid: 0a8d5f3f-97c4-41cd-82bf-9e2844432985
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 256
+      height: 256
+      anchor: center-top

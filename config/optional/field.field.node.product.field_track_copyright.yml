@@ -1,0 +1,29 @@
+uuid: e331c252-f8f0-4711-ada3-9f9f2149b0bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_track_copyright
+    - node.type.product
+    - taxonomy.vocabulary.track_copyright
+id: node.product.field_track_copyright
+field_name: field_track_copyright
+entity_type: node
+bundle: product
+label: 'Track Copyright'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      track_copyright: track_copyright
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

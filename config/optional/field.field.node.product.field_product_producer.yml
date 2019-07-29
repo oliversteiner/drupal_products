@@ -1,0 +1,29 @@
+uuid: 8aecc460-9b41-4039-8ac2-ddce464ecafb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_producer
+    - node.type.product
+    - taxonomy.vocabulary.track_producer
+id: node.product.field_product_producer
+field_name: field_product_producer
+entity_type: node
+bundle: product
+label: 'Product Producer'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      track_producer: track_producer
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: track_artist
+field_type: entity_reference

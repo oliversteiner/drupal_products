@@ -1,0 +1,29 @@
+uuid: ea77cbb5-d600-4e13-8b81-eec166afff94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_track_artist
+    - node.type.product
+    - taxonomy.vocabulary.track_artist
+id: node.product.field_track_artist
+field_name: field_track_artist
+entity_type: node
+bundle: product
+label: 'Track Artist'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      track_artist: track_artist
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

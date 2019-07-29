@@ -1,0 +1,29 @@
+uuid: 6c9aac08-710c-43ae-99c9-e6024fa4970f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_track_author
+    - node.type.product
+    - taxonomy.vocabulary.track_author
+id: node.product.field_track_author
+field_name: field_track_author
+entity_type: node
+bundle: product
+label: 'Track Author'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      track_author: track_author
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference
