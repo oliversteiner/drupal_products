@@ -1,0 +1,11 @@
+uuid: 1bb2d8f5-7101-4638-b86e-22c1b8b26249
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.track_copyright
+id: taxonomy_term.track_copyright
+target_entity_type_id: taxonomy_term
+target_bundle: track_copyright
+default_langcode: site_default
+language_alterable: false

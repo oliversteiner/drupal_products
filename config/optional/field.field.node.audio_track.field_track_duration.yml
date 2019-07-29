@@ -1,0 +1,28 @@
+uuid: 6d3eb835-2cbe-4ed6-bd23-f9f41698838c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_track_duration
+    - node.type.audio_track
+  module:
+    - duration_field
+id: node.audio_track.field_track_duration
+field_name: field_track_duration
+entity_type: node
+bundle: audio_track
+label: 'Track Duration'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  granularity:
+    minute: true
+    second: true
+    year: false
+    month: false
+    day: false
+    hour: false
+field_type: duration

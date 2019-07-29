@@ -1,0 +1,11 @@
+uuid: 55e8ad58-35f5-42c8-aabd-859e3813c929
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.audio_track
+id: node.audio_track
+target_entity_type_id: node
+target_bundle: audio_track
+default_langcode: site_default
+language_alterable: false

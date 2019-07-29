@@ -1,0 +1,29 @@
+uuid: 8de51bec-a028-4ec9-b376-056b274cc622
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_track_copyright
+    - node.type.audio_track
+    - taxonomy.vocabulary.track_copyright
+id: node.audio_track.field_track_copyright
+field_name: field_track_copyright
+entity_type: node
+bundle: audio_track
+label: 'Track Copyright'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      track_copyright: track_copyright
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

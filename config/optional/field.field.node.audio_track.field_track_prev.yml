@@ -1,0 +1,28 @@
+uuid: c31ddd1e-2275-43d8-b72e-8854a1a778e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_track_prev
+    - media.type.audio_track
+    - node.type.audio_track
+id: node.audio_track.field_track_prev
+field_name: field_track_prev
+entity_type: node
+bundle: audio_track
+label: 'Track Preview'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      audio_track: audio_track
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

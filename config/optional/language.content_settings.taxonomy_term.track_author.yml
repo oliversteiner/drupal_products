@@ -1,0 +1,11 @@
+uuid: f7af2480-a60d-441c-9adf-c66b0f485a64
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.track_author
+id: taxonomy_term.track_author
+target_entity_type_id: taxonomy_term
+target_bundle: track_author
+default_langcode: site_default
+language_alterable: false

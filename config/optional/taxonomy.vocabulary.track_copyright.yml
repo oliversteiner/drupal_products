@@ -1,0 +1,8 @@
+uuid: 31b85042-d417-4e11-9638-8b822d6bcb68
+langcode: en
+status: true
+dependencies: {  }
+name: 'Track Copyright'
+vid: track_copyright
+description: ''
+weight: 0

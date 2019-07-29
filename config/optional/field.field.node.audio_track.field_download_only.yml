@@ -1,0 +1,23 @@
+uuid: fe3251ef-7c7f-479e-83be-3234c68f1851
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_download_only
+    - node.type.audio_track
+id: node.audio_track.field_download_only
+field_name: field_download_only
+entity_type: node
+bundle: audio_track
+label: 'Download Only'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

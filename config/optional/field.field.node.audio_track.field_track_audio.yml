@@ -1,0 +1,28 @@
+uuid: f5dc7102-038b-45cf-8aac-7e115f3162fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_track_audio
+    - media.type.audio_track
+    - node.type.audio_track
+id: node.audio_track.field_track_audio
+field_name: field_track_audio
+entity_type: node
+bundle: audio_track
+label: 'Track Audio'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      audio_track: audio_track
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

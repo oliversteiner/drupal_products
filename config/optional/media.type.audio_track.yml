@@ -1,0 +1,16 @@
+uuid: 2212e1fe-9ddd-4796-b20e-aecafaf7aaaf
+langcode: en
+status: true
+dependencies: {  }
+id: audio_track
+label: 'Audio Track'
+description: ''
+source: audio_file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_audio_file
+field_map:
+  name: name
+  mimetype: name
+  filesize: name

@@ -1,0 +1,11 @@
+uuid: 91fc0fcc-9994-46e8-a6a0-906397f4d26a
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.track_producer
+id: taxonomy_term.track_producer
+target_entity_type_id: taxonomy_term
+target_bundle: track_producer
+default_langcode: site_default
+language_alterable: false
