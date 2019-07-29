@@ -1,0 +1,31 @@
+uuid: b31c5682-3059-4ba8-af02-f4882dcf39e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.audio_track.body
+    - node.type.audio_track
+  module:
+    - text
+    - user
+id: node.audio_track.teaser
+targetEntityType: node
+bundle: audio_track
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
