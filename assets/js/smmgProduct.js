@@ -15,6 +15,7 @@
           const $tracklistItem = $('.product-track-list-item-trigger');
 
           const $toggleTracklistButton = $('.product-show-tracklist-trigger');
+          const $toggleTracklistButtonLabel = $('.product-show-tracklist-trigger-label');
           const $tracklistContainer = $('.product-tracks-container');
 
           const $playerContainer = $('.audio-player-widget');
@@ -33,6 +34,7 @@
             nextTrackButton: $nextTrackButton,
             previewTrackButton: $previewTrackButton,
             toggleTracklistButton: $toggleTracklistButton,
+            toggleTracklistButtonLabel:$toggleTracklistButtonLabel,
             tracklistContainer: $tracklistContainer,
           };
 
@@ -93,10 +95,36 @@
      *
      */
     toggleTracklist() {
-      this.$elements.tracklistContainer.toggle();
+
+      const $target = this.$elements.tracklistContainer;
+      const $button = this.$elements.toggleTracklistButton;
+      const $buttonLabel = this.$elements.toggleTracklistButtonLabel;
+
+      $target.toggle();
+      
+      // if tracks and mobile scroll to tracklist
+      const screen = $(window).width();
+
+     if(screen < 500){
+        $('html, body').animate({
+          scrollTop:$target.offset().top
+        },'slow');
+      }
+
+     console.log('$target.is(\':visible\')',$target.is(':visible') );
+
+      if($target.is(':visible')){
+        $buttonLabel.html('Lieder ausblenden')
+      }else{
+        $buttonLabel.html('Lieder anzeigen')
+
+      }
+        
     },
 
-    /**
+
+
+      /**
      *
      */
     playAll() {

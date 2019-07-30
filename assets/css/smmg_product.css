@@ -89,8 +89,6 @@
   background: #4d4d4d;
   border-radius: 7px;
   color: cornsilk;
-  min-width: 250px;
-  max-width: 300px;
   height: 40px;
   justify-content: flex-start;
   margin: 10px 0;
@@ -319,6 +317,10 @@ ul.product-available-as-list {
 .product-teaser-buttons {
     text-align: center;
     margin: auto;
+  }
+
+  .node--view-mode-teaser .product-teaser-buttons {
+    width: auto;
   }
 }
 @media (min-width: 1200px) {

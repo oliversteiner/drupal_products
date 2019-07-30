@@ -92,8 +92,6 @@
   background: #4d4d4d;
   border-radius: 7px;
   color: cornsilk;
-  min-width: 250px;
-  max-width: 300px;
   height: 40px;
   justify-content: flex-start;
   margin: 10px 0;
@@ -154,7 +152,7 @@
 .product-author,
 .product-artist,
 .product-producer,
-.product-date-of-publication{
+.product-date-of-publication {
   font-style: italic;
 }
 
@@ -303,7 +301,7 @@ ul.product-available-as-list {
   border: 1px solid #404040;
 }
 
-.product-teaser-buttons{
+.product-teaser-buttons {
   display: block;
   position: relative;
 }
@@ -327,7 +325,7 @@ ul.product-available-as-list {
   margin-bottom: 20px;
 }
 
-.product-show-tracklist-trigger{
+.product-show-tracklist-trigger {
   display: inline-block;
 }
 
@@ -354,12 +352,18 @@ ul.product-available-as-list {
     margin: auto;
   }
 
+  .node--view-mode-teaser .product-teaser-buttons {
+    width: auto;
+  }
+
 }
+
+
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 1200px) {
 
-  .product-show-tracklist-trigger{
+  .product-show-tracklist-trigger {
     display: none;
   }
   .node--view-mode-teaser .product-tracks-container,
