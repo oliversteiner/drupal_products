@@ -69,7 +69,7 @@
   height: 40px;
   text-align: center;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 1rem;
 }
 .audio-player-button:hover {
   color: white;
@@ -107,7 +107,7 @@
   align-items: center;
   justify-content: center;
   font-family: "Droid sans", "Lucida Grande", sans-serif;
-  font-size: 12px;
+  font-size: 1rem;
 }
 
 .product-listen-all-previews-trigger,
@@ -194,7 +194,7 @@ li.product-track-list-item audio {
   width: 35px;
   text-align: center;
   color: grey;
-  font-size: small;
+  font-size: 1rem;
 }
 
 .product-track-list-item-name {
@@ -232,7 +232,7 @@ ul.product-track-info-list {
 ul.product-available-as-list {
   list-style: none;
   font-family: "Lato", sans-serif;
-  font-size: small;
+  font-size: 1rem;
   border-top: solid 1px silver;
   border-bottom: solid 1px silver;
   padding: 5px;
