@@ -247,7 +247,6 @@ ul.product-available-as-list {
   border-top: solid 1px silver;
   border-bottom: solid 1px silver;
   padding: 5px;
-
 }
 
 .product-available-as-item-container {
@@ -285,7 +284,7 @@ ul.product-available-as-list {
   min-width: 256px;
   background-color: #c3c3c3;
   box-shadow: 5px 3px 12px 0 rgba(0, 0, 0, 0.31),
-  inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+    inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
 .product-images ul {
@@ -319,7 +318,7 @@ ul.product-available-as-list {
 .product-info-container,
 .product-tracks-container,
 .product-available-as-container {
-  min-width: 300px;
+  min-width: 350px;
   padding: 0 10px;
   height: auto;
   margin-bottom: 20px;
@@ -335,13 +334,16 @@ ul.product-available-as-list {
   .product-teaser-buttons {
     display: flex;
     justify-content: space-between;
-    width: 256px;
+    width: 280px;
+    margin-left: -10px;
   }
 
   .product-tracks-container {
     display: none;
   }
+}
 
+.info-and-tracklist-wrapper {
 }
 
 // Extra small devices (portrait phones, less than 576px)
@@ -355,13 +357,13 @@ ul.product-available-as-list {
   .node--view-mode-teaser .product-teaser-buttons {
     width: auto;
   }
-
 }
-
-
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 1200px) {
+  .info-and-tracklist-wrapper {
+    display: flex;
+  }
 
   .product-show-tracklist-trigger {
     display: none;
@@ -370,7 +372,4 @@ ul.product-available-as-list {
   .product-tracks-container {
     display: inline-block;
   }
-
 }
-
-

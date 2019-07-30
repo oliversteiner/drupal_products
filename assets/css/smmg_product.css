@@ -293,7 +293,7 @@ ul.product-available-as-list {
 .product-info-container,
 .product-tracks-container,
 .product-available-as-container {
-  min-width: 300px;
+  min-width: 350px;
   padding: 0 10px;
   height: auto;
   margin-bottom: 20px;
@@ -306,7 +306,8 @@ ul.product-available-as-list {
 .node--view-mode-teaser .product-teaser-buttons {
   display: flex;
   justify-content: space-between;
-  width: 256px;
+  width: 280px;
+  margin-left: -10px;
 }
 .node--view-mode-teaser .product-tracks-container {
   display: none;
@@ -324,6 +325,10 @@ ul.product-available-as-list {
   }
 }
 @media (min-width: 1200px) {
+  .info-and-tracklist-wrapper {
+    display: flex;
+  }
+
   .product-show-tracklist-trigger {
     display: none;
   }
