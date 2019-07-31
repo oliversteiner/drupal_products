@@ -21,6 +21,9 @@
           const $playerContainer = $('.audio-player-widget');
           const $togglePlayerButton = $('.product-listen-all-previews-trigger');
 
+          const $orderButton = $('.product-order-trigger');
+
+
           const $playButton = $('.audio-player-play-trigger');
           const $pauseButton = $('.audio-player-pause-trigger');
           const $nextTrackButton = $('.audio-player-next-track-trigger');
@@ -34,8 +37,9 @@
             nextTrackButton: $nextTrackButton,
             previewTrackButton: $previewTrackButton,
             toggleTracklistButton: $toggleTracklistButton,
-            toggleTracklistButtonLabel:$toggleTracklistButtonLabel,
+            toggleTracklistButtonLabel: $toggleTracklistButtonLabel,
             tracklistContainer: $tracklistContainer,
+            orderButton: $orderButton,
           };
 
           const scope = this;
@@ -62,6 +66,10 @@
 
           $toggleTracklistButton.click(function() {
             scope.toggleTracklist();
+          });
+
+          $orderButton.click(function() {
+            scope.orderProduct();
           });
 
           return $tracklistItem.each(function(index) {
@@ -101,30 +109,29 @@
       const $buttonLabel = this.$elements.toggleTracklistButtonLabel;
 
       $target.toggle();
-      
+
       // if tracks and mobile scroll to tracklist
       const screen = $(window).width();
 
-     if(screen < 500){
+      if (screen < 500) {
         $('html, body').animate({
-          scrollTop:$target.offset().top
-        },'slow');
+          scrollTop: $target.offset().top,
+        }, 'slow');
       }
 
-     console.log('$target.is(\':visible\')',$target.is(':visible') );
+      console.log('$target.is(\':visible\')', $target.is(':visible'));
 
-      if($target.is(':visible')){
-        $buttonLabel.html('Lieder ausblenden')
-      }else{
-        $buttonLabel.html('Lieder anzeigen')
+      if ($target.is(':visible')) {
+        $buttonLabel.html('Lieder ausblenden');
+      } else {
+        $buttonLabel.html('Lieder anzeigen');
 
       }
-        
+
     },
 
 
-
-      /**
+    /**
      *
      */
     playAll() {
@@ -195,6 +202,16 @@
       this.current_track = next_track;
 
       this.play();
+    },
+
+
+    /**
+     *
+     */
+    orderProduct() {
+      const url = '/order_product';
+      $(location).attr('href', url);
+
     },
 
     /**
