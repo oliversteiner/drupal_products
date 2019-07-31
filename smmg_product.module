@@ -80,6 +80,9 @@ function getProductVariables($node): array
   // name
   $name = $node->getTitle();
 
+  // url
+  $url = $node->toUrl()->toString();
+
   // available
   $field_name = 'product_available';
   $available = Helper::getFieldValue($node, $field_name);
@@ -177,6 +180,8 @@ function getProductVariables($node): array
 
   $tracks = getAlbumTrackVariables($track_ids);
 
+
+
   // write returns
   return [
     'name' => $name,
@@ -198,6 +203,7 @@ function getProductVariables($node): array
     'copyright' => $copyright,
     'date_of_publication' => $date_of_publication,
     'tracks' => $tracks,
+    'url' => $url,
   ];
 }
 
