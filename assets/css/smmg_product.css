@@ -108,8 +108,24 @@
   font-size: 1rem;
 }
 
+.product-teaser-buttons {
+  width: auto;
+  flex-wrap: wrap;
+}
+
+.product-teaser-buttons div {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.product-teaser-buttons div span {
+  padding-left: 5px;
+}
+
 .product-listen-all-previews-trigger,
-.product-show-tracklist-trigger .product-order-trigger {
+.product-show-tracklist-trigger,
+.product-order-trigger {
   cursor: pointer;
   border-radius: 5px;
   padding: 3px 7px;
@@ -117,26 +133,39 @@
 }
 .product-listen-all-previews-trigger i,
 .product-listen-all-previews-trigger svg,
-.product-show-tracklist-trigger .product-order-trigger i,
-.product-show-tracklist-trigger .product-order-trigger svg {
+.product-show-tracklist-trigger i,
+.product-show-tracklist-trigger svg,
+.product-order-trigger i,
+.product-order-trigger svg {
   color: black;
 }
-.product-listen-all-previews-trigger a,
-.product-show-tracklist-trigger .product-order-trigger a {
+.product-listen-all-previews-trigger a, .product-listen-all-previews-trigger a:link,
+.product-show-tracklist-trigger a,
+.product-show-tracklist-trigger a:link,
+.product-order-trigger a,
+.product-order-trigger a:link {
   text-decoration: none;
+  border: none;
 }
 .product-listen-all-previews-trigger span,
-.product-show-tracklist-trigger .product-order-trigger span {
+.product-show-tracklist-trigger span,
+.product-order-trigger span {
   padding-left: 5px;
   color: darkred;
 }
 .product-listen-all-previews-trigger:hover,
-.product-show-tracklist-trigger .product-order-trigger:hover {
+.product-show-tracklist-trigger:hover,
+.product-order-trigger:hover {
   background-color: #e5e5e5;
 }
 .product-listen-all-previews-trigger:active,
-.product-show-tracklist-trigger .product-order-trigger:active {
+.product-show-tracklist-trigger:active,
+.product-order-trigger:active {
   background-color: #b4b4b4;
+}
+
+.path-product-order .product-order-trigger {
+  display: none;
 }
 
 .product-category {
