@@ -275,6 +275,7 @@ function getTrackVariables($track_id): array
   $value = Helper::getFieldValue($node, $field_name, $term_list, true);
   $arrangings = $value;
 
+
   // copyright
   $field_name = 'track_copyright';
   $term_list = 'track_copyright';
