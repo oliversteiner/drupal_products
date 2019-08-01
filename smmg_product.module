@@ -269,9 +269,9 @@ function getTrackVariables($track_id): array
   $value = Helper::getFieldValue($node, $field_name, $term_list, true);
   $authors = $value;
 
-  // author
-  $field_name = 'track_author';
-  $term_list = 'track_arranging';
+  // arranging
+  $field_name = 'track_arranging';
+  $term_list = 'track_author';
   $value = Helper::getFieldValue($node, $field_name, $term_list, true);
   $arrangings = $value;
 

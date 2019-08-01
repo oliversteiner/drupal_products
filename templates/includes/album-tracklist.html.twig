@@ -57,7 +57,7 @@
              class="product-track-list-item-info product-track-list-item-info-{{ loop.index0 }}">
           <ul class="product-track-info-list">
             {# artist #}
-            {% if track.artists %}
+            {% if track.artists|length != 0 %}
               <li class="product-track-list-info-item product-track-list-item-artist">
                 <label class="product-label sr-only">Artist:</label>
                 <ul class="product-multiple">
@@ -85,7 +85,7 @@
 
 
             {# arranging #}
-            {% if track.arrangings|length != 0 %}
+            {% if not track.arrangings|length == 0 %}
 
               <li class="product-track-list-info-item product-track-list-item-author">
                 <label class="product-label">Arr.:</label>
@@ -101,7 +101,7 @@
             {# copyright #}
             {% if track.copyright %}
               <li class="product-track-list-info-item product-track-list-item-copyright">
-                <label class="product-label sr-only">Copyright:</label>
+                <label class="product-label">Verlag:</label>
                 {{ track.copyright }}</li>
             {% endif %}
 
