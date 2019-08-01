@@ -281,6 +281,12 @@ ul.product-available-as-list {
   align-items: center;
 }
 
+.product-available-as-item-container-shipping {
+  padding-bottom: 5px;
+  border-bottom: solid 1px #dadada;
+  margin-bottom: 5px;
+}
+
 .product-order-button {
   cursor: pointer;
   border-radius: 5px;
