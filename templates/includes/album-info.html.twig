@@ -1,0 +1,65 @@
+{# Product Title & Info #}
+{# ==================================  #}
+
+<div class="product-info-container">
+
+  {# category #}
+  <div class="product-category">
+    <span class="product-label sr-only">Produkt Kategory:</span>
+    {{ product.category }}
+  </div>
+
+  {# name #}
+  <div class="product-name">
+    <span class="product-label sr-only">Titel:</span>
+    <h2>{{ product.name }} </h2>
+  </div>
+
+  {# description #}
+  <div class="product-description">
+    <span class="product-label sr-only">Beschreibung:</span>
+    {{ product.description }}
+  </div>
+
+  {# artist #}
+  <div class="product-artist">
+    <span class="product-label sr-only">Interpret:</span>
+    <ul class="product-multiple">
+      {% for artist in product.artists %}
+        <li>{{ artist }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {# author #}
+  <div class="product-author">
+    <span class="product-label sr-only">Autor:</span>
+    <ul class="product-multiple">
+      {% for author in product.authors %}
+        <li>{{ author }}</li>
+      {% endfor %}
+    </ul>
+
+  </div>
+
+  {# copyright #}
+  <div class="product-copyright">
+    <span class="product-label sr-only">Copyright:</span>
+    {{ product.copyright }} </div>
+
+  {# producer #}
+  <div class="product-producer">
+    <span class="product-label sr-only">Produzent:</span>
+    {{ product.producer }} </div>
+
+
+  {# Date of publication	 #}
+  <div class="product-date-of-publication">
+    <span class="product-label sr-only">Veröffentlicht am	:</span>
+    {{ product.date_of_publication|date("F Y") }} </div>
+
+  {# available #}
+  {% if not product.available %}
+    <div class="product-not-available">Zur Zeit nicht verfügbar.</div>
+  {% endif %}
+</div>

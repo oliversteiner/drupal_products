@@ -1,0 +1,45 @@
+{# Audio Player #}
+<div style="display: none" class="audio-player-widget">
+
+  <div class="audio-player">
+
+    <div class="audio-player-button-list">
+      {# step-backward #}
+      <div class="audio-player-button audio-player-preview-track audio-player-preview-track-trigger">
+        <i class="fas fa-step-backward"></i>
+      </div>
+
+      {# Play #}
+      <div class="audio-player-button audio-player-play audio-player-play-trigger">
+        <i class="fas fa-play"></i>
+      </div>
+
+      {# pause #}
+      <div class="audio-player-button audio-player-pause audio-player-pause-trigger" style="display: none">
+        <i class="fas fa-pause"></i>
+      </div>
+
+      {# step-forward #}
+      <div class="audio-player-button audio-player-next-track audio-player-next-track-trigger">
+        <i class="fas fa-step-forward"></i>
+      </div>
+
+    </div>
+
+    <div class="audio-player-activity-bars">
+      <div id="bars">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+
+    <div class="audio-player-display">
+      <span class="audio-player-display-content"></span>
+    </div>
+
+  </div>
+</div>
