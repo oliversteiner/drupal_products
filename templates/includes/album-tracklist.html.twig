@@ -4,97 +4,112 @@
 <div class="product-tracks-container">
   <h3>Inhalt</h3>
 
-<ul class="product-track-list" aria-label="Album Track Liste">
-  {% for track in product.tracks %}
+  <ul class="product-track-list" aria-label="Album Track Liste">
+    {% for track in product.tracks %}
 
-    <li class="product-track-list-item
+      <li class="product-track-list-item
           product-track-list-item-trigger
           {% if track.has_preview %}with-preview{% endif %}"
-        data-list-item="item-{{ loop.index0 }}">
+          data-list-item="item-{{ loop.index0 }}">
 
-      {# ===== Track List Item General #}
-      <div class="product-track-list-item-container">
-        <div class="product-track-list-item-general">
-          {# number #}
-          <span class="product-track-list-item-number">{{ "%02d"|format(track.number) }}</span>
+        {# ===== Track List Item General #}
+        <div class="product-track-list-item-container">
+          <div class="product-track-list-item-general">
+            {# number #}
+            <span class="product-track-list-item-number">{{ "%02d"|format(track.number) }}</span>
 
-          {# name #}
-          <span class="product-track-list-item-name">{{ track.name }}</span>
+            {# name #}
+            <span class="product-track-list-item-name">{{ track.name }}</span>
 
-          {# duration #}
-          <span class="product-track-list-item-duration">{{ track.duration }}</span>
+            {# duration #}
+            <span class="product-track-list-item-duration">{{ track.duration }}</span>
 
 
+          </div>
+          {# preview_file #}
+          <div class="product-track-list-item-preview">
+            {% if track.has_preview %}
+              <i class="fas fa-volume-up"></i>
+            {% endif %}
+          </div>
         </div>
-        {# preview_file #}
-        <div class="product-track-list-item-preview">
-          {% if track.has_preview %}
-            <i class="fas fa-volume-up"></i>
-          {% endif %}
-        </div>
-      </div>
-      {# ===== Track List Item Download only #}
-      {% if track.download_only %}
-        <div class="product-track-list-item-download-only">
-          Nur als mp3 erhältlich.
-        </div>
-      {% endif %}
+        {# ===== Track List Item Download only #}
+        {% if track.download_only %}
+          <div class="product-track-list-item-download-only">
+            Nur als mp3 erhältlich.
+          </div>
+        {% endif %}
 
-      {# ===== Track List Item Preview #}
-      {% if track.has_preview %}
+        {# ===== Track List Item Preview #}
+        {% if track.has_preview %}
 
+          <div style="display: none"
+               class="product-track-list-item-preview-player product-track-list-item-preview-player-{{ loop.index0 }} ">
+            <audio controls="controls">
+              <source src="{{ track.preview.media_link }}" type="{{ track.preview.mime_type }}">
+            </audio>
+          </div>
+        {% endif %}
+
+
+        {# ===== Track List Item Info #}
         <div style="display: none"
-             class="product-track-list-item-preview-player product-track-list-item-preview-player-{{ loop.index0 }} ">
-          <audio controls="controls">
-            <source src="{{ track.preview.media_link }}" type="{{ track.preview.mime_type }}">
-          </audio>
+             class="product-track-list-item-info product-track-list-item-info-{{ loop.index0 }}">
+          <ul class="product-track-info-list">
+            {# artist #}
+            {% if track.artists %}
+              <li class="product-track-list-info-item product-track-list-item-artist">
+                <label class="product-label sr-only">Artist:</label>
+                <ul class="product-multiple">
+                  {% for artist in track.artists %}
+                    <li>{{ artist }}</li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endif %}
+
+            {# author #}
+            {% if track.authors|length != 0 %}
+
+              <li class="product-track-list-info-item product-track-list-item-author">
+                <label class="product-label">Komp.:</label>
+
+                <ul class="product-multiple">
+                  {% for author in track.authors %}
+                    <li>{{ author }}</li>
+                  {% endfor %}
+                </ul>
+
+              </li>
+            {% endif %}
+
+
+            {# arranging #}
+            {% if track.arrangings|length != 0 %}
+
+              <li class="product-track-list-info-item product-track-list-item-author">
+                <label class="product-label">Arr.:</label>
+              <ul class="product-multiple">
+                {% for arranging in track.arrangings %}
+                  <li>{{ arranging }}</li>
+                {% endfor %}
+              </ul>
+
+              </li>
+            {% endif %}
+
+            {# copyright #}
+            {% if track.copyright %}
+              <li class="product-track-list-info-item product-track-list-item-copyright">
+                <label class="product-label sr-only">Copyright:</label>
+                {{ track.copyright }}</li>
+            {% endif %}
+
+          </ul>
         </div>
-      {% endif %}
 
+      </li>
 
-      {# ===== Track List Item Info #}
-      <div style="display: none"
-           class="product-track-list-item-info product-track-list-item-info-{{ loop.index0 }}">
-        <ul class="product-track-info-list">
-          {# artist #}
-          {% if track.artists %}
-            <li class="product-track-list-item-artist">
-              <span class="product-label sr-only">Artist:</span>
-              <ul class="product-multiple">
-                {% for artist in track.artists %}
-                  <li>{{ artist }}</li>
-                {% endfor %}
-              </ul>
-            </li>
-          {% endif %}
-
-          {# author #}
-          {% if track.authors %}
-
-            <li class="product-track-list-item-author">
-              <span class="product-label sr-only">Autor:</span>
-
-              <ul class="product-multiple">
-                {% for author in track.authors %}
-                  <li>{{ author }}</li>
-                {% endfor %}
-              </ul>
-
-            </li>
-          {% endif %}
-
-          {# copyright #}
-          {% if track.copyright %}
-            <li class="product-track-list-item-copyright">
-              <span class="product-label sr-only">Copyright:</span>
-              {{ track.copyright }}</li>
-          {% endif %}
-
-        </ul>
-      </div>
-
-    </li>
-
-  {% endfor %}
-</ul>
+    {% endfor %}
+  </ul>
 </div>
