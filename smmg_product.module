@@ -152,14 +152,14 @@ function getProductVariables($node): array
   // $artist
   $field_name = 'track_artist';
   $term_list = 'track_artist';
-  $value = Helper::getFieldValue($node, $field_name, $term_list);
-  $artist = $value;
+  $value = Helper::getFieldValue($node, $field_name, $term_list, true);
+  $artists = $value;
 
   // author
   $field_name = 'track_author';
   $term_list = 'track_author';
-  $value = Helper::getFieldValue($node, $field_name, $term_list);
-  $author = $value;
+  $value = Helper::getFieldValue($node, $field_name, $term_list, true);
+  $authors = $value;
 
   // copyright
   $field_name = 'track_copyright';
@@ -198,8 +198,8 @@ function getProductVariables($node): array
     'price_total_download' => $price_download,
     'price_shipping' => $price_shipping,
     'producer' => $producer,
-    'artist' => $artist,
-    'author' => $author,
+    'artists' => $artists,
+    'authors' => $authors,
     'copyright' => $copyright,
     'date_of_publication' => $date_of_publication,
     'tracks' => $tracks,
@@ -260,14 +260,14 @@ function getTrackVariables($track_id): array
   // artist
   $field_name = 'track_artist';
   $term_list = 'track_artist';
-  $value = Helper::getFieldValue($node, $field_name, $term_list);
-  $artist = $value;
+  $value = Helper::getFieldValue($node, $field_name, $term_list, true);
+  $artists = $value;
 
   // author
   $field_name = 'track_author';
   $term_list = 'track_author';
-  $value = Helper::getFieldValue($node, $field_name, $term_list);
-  $author = $value;
+  $value = Helper::getFieldValue($node, $field_name, $term_list, true);
+  $authors = $value;
 
   // copyright
   $field_name = 'track_copyright';
@@ -301,8 +301,8 @@ function getTrackVariables($track_id): array
     'preview' => $_preview,
     'audio' => $_audio,
     'has_audio' => $has_audio,
-    'artist' => $artist,
-    'author' => $author,
+    'artists' => $artists,
+    'authors' => $authors,
     'copyright' => $copyright,
     'download_only' => $download_only,
   ];
